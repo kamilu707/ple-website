@@ -3,15 +3,12 @@
 DB Name: ple_website
 
 Tasks finished:
-- create database and added foreign keys.
-- create hader and connect to database.
 
 
 
 To Do:
-- create base.php.
-- create home page content  and footer.
-- redirect to test blog (simple present) page.
+- Finish blog post in DB.
+- Fix Upload image in Ckeditor.
 - add quize related to blog simple prezent in another page view.
 - Add link funcinality to sidnavi menu.
 

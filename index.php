@@ -5,7 +5,7 @@ include('base_top.php')
 
 <!-- Start content -->
 <section class="container">
-    <div class="row mt-4 ">
+    <div class="row mt-4">
         <div class="col-md-3">
             <div class="card p-2">
                 <?php
