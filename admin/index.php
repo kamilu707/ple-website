@@ -51,7 +51,6 @@ if (mysqli_connect_errno()) {
 
 
 
-
                 ?>
 
                 <h2>Add New Blog</h2>

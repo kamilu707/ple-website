@@ -5,9 +5,9 @@ include('base_top.php')
 
 <!-- Start content -->
 <section class="container">
-    <div class="row mt-4">
-        <div class="col-md-3 me-3">
-            <div class="card p-2 sticky-top ">
+    <div class="row mt-4 ">
+        <div class="col-md-3 ">
+            <div class="card p-2 sticky-top me-3">
                 <?php
                 $query1 = "select * from course";
 
@@ -33,12 +33,22 @@ include('base_top.php')
         <div class="col-md-8 bg-white ">
             <div class="row">
                 <?php
-                $query = "select * from blog";
+                $query = "select * from blog where id_blog='" . $_GET['id'] . "'";
                 $result = mysqli_query($connect, $query);
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
 
-                        echo "<div class='p-3' >" . "<div> <img src='" . $row['thumbnail_link'] . "' width='300px'></div>"  . "<h2><a href='./single.php?id=" . $row['id_blog'] . "'>" . $row['title_blog'] . "</a></h2>" . "</div>";
+                        echo "<h1>" . $row['title_blog'] . "</h1>";
+                        echo $row['body_blog'];
+                        $author_q = "select name_author from author where id_author='" . $row['id_author_fk'] . "'";
+                        $lecture_q = "select name_lecture from lecture where id_lecture='" . $row['id_lecture_fk'] . "'";
+                        $result_author = mysqli_query($connect, $author_q);
+                        $result_lecture = mysqli_query($connect, $lecture_q);
+                        $author = mysqli_fetch_assoc($result_author);
+                        $lecture = mysqli_fetch_assoc($result_lecture);
+                        echo "<br/><hr/>";
+                        echo "<br>" . $author['name_author'];
+                        echo "<br>" . $lecture['name_lecture'];
                     }
                 }
                 ?>

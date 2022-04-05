@@ -7,7 +7,8 @@ Tasks finished:
 
 
 To Do:
-- Finish blog post in DB.
+- find solution for read post content.
+- Finish blog post in DB. (find how to post thumbnail).
 - Fix Upload image in Ckeditor.
 - add quize related to blog simple prezent in another page view.
 - Add link funcinality to sidnavi menu.
