@@ -7,7 +7,7 @@ include('base_top.php')
 <section class="container">
     <div class="row mt-4 ">
         <div class="col-md-3 ">
-            <div class="card p-2 sticky-top me-3">
+            <div class="card p-2 sticky-top me-3 mb-3">
                 <?php
                 $query1 = "select * from course";
 
@@ -28,29 +28,31 @@ include('base_top.php')
                     }
                 }
                 ?>
-                <hr>
-                <a class="text-center" href="./quize.php?idq=<?php echo $_GET['id'] ?>"><button type="button" class="btn btn-success text-center bg-success p-3 text-white">Take Exercices</button></a>
+                <!-- <hr>
+                <a class="text-center" href="./quize.php?idq=<?php echo $_GET['id'] ?>"><button type="button" class="btn btn-success text-center bg-success p-3 text-white">Take Exercices</button></a> -->
             </div>
         </div>
         <div class="col-md-8 bg-white ">
             <div class="row">
+                <h1>Quizes and Exercies</h1>
                 <?php
-                $query = "select * from blog where id_blog='" . $_GET['id'] . "'";
+                $query = "select * from quize where id_blog_fk=" . $_GET['idq'];
                 $result = mysqli_query($connect, $query);
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
 
-                        echo "<h1>" . $row['title_blog'] . "</h1>";
-                        echo $row['body_blog'];
-                        $author_q = "select name_author from author where id_author='" . $row['id_author_fk'] . "'";
-                        $lecture_q = "select name_lecture from lecture where id_lecture='" . $row['id_lecture_fk'] . "'";
-                        $result_author = mysqli_query($connect, $author_q);
-                        $result_lecture = mysqli_query($connect, $lecture_q);
-                        $author = mysqli_fetch_assoc($result_author);
-                        $lecture = mysqli_fetch_assoc($result_lecture);
-                        echo "<br/><hr/>";
-                        echo "<br>" . $author['name_author'];
-                        echo "<br>" . $lecture['name_lecture'];
+                        echo "<h2>" . $row['title_quize'] . "</h2>";
+                        echo $row['content_quize'];
+                    }
+                    $query_exrecice = "SELECT * From exercice where id_blog_fk=" . $_GET['idq'];
+                    $result_exercice = mysqli_query($connect, $query_exrecice);
+                    if (mysqli_num_rows($result_exercice) > 0) {
+                        while ($row2 = mysqli_fetch_assoc($result_exercice)) {
+                            echo "<h3 class='bg-light p-2 mb-5'>" . $row2['question'] . "</h3>";
+                            echo "<input type='checkbox'>" . $row2['choice1'];
+                            echo "<input type='checkbox'>" . $row2['choice2'];
+                            echo "<input type='checkbox'>" . $row2['choice3'];
+                        }
                     }
                 }
                 ?>

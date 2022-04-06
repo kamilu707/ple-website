@@ -7,7 +7,7 @@ include('base_top.php')
 <section class="container">
     <div class="row mt-4">
         <div class="col-md-3 me-3">
-            <div class="card p-2 sticky-top ">
+            <div class="card p-2 sticky-top">
                 <?php
                 $query1 = "select * from course";
 
@@ -20,7 +20,7 @@ include('base_top.php')
                         if (mysqli_num_rows($result2) > 0) {
                             echo "<ul>";
                             while ($row2 = mysqli_fetch_assoc($result2)) {
-                                echo "<li>" . $row2['name_lecture'] . "</li>";
+                                echo "<li><a href='./category.php?id=" . $row2['id_lecture'] . "'>" . $row2['name_lecture'] . "</a></li>";
                             }
                             echo "</ul>";
                         }
