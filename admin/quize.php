@@ -1,37 +1,39 @@
+<!-- connect to DB and include bloabl content -->
 <?php
 include("./global_top.php")
 ?>
 
+<!-- Start Body content -->
 <div class="col-md-8 bg-light">
     <?php
     if (isset($_POST['submit'])) {
-        $title_blog = $_POST['title_blog'];
-        $body_blog = $_POST['body_blog'];
+        $title_quize = $_POST['title_quize'];
+        $content_quize = $_POST['content_quize'];
         $id_author_fk = $_POST['id_author_fk'];
         $id_lecture_fk = $_POST['id_lecture_fk'];
-        // $thumbnail_link = $_POST['thumbnail_link'];
-        $query_insert = "INSERT INTO blog(title_blog, body_blog, id_author_fk, id_lecture_fk) VALUES('" .  $title_blog . "','" . $body_blog . "','" . $id_author_fk . "','" . $id_lecture_fk . "')";
-        // $query = "INSERT INTO voiture(Matricule, Couleur, Typecar, Manuel, marque) VALUES ('" . $Matricule . "','" . $Couleur . "','" . $Typecar . "','" . $Manuel . "','" . $marque . "')";
+        $id_blog_fk = $_POST['id_blog_fk'];
+
+        $query_insert = "INSERT INTO quize(title_quize, content_quize , id_blog_fk , id_author_fk, id_lecture_fk) VALUES('" .  $title_quize . "','" . $content_quize . "','" . $id_blog_fk . "','" . $id_author_fk . "','" . $id_lecture_fk . "')";
         $result_insert = mysqli_query($connect, $query_insert);
         if (!$result_insert) {
-            echo "<div>Data not insteted.</div><br>" . $query_insert;
+            echo "<div class='bg-danger'>Data not insteted.</div><br>" . $query_insert;
         }
     }
 
     ?>
 
-    <h2 class="bg-success">Add New Blog</h2>
+    <h2 class="bg-primary">Add New Quize </h2>
     <form action="#" method="post" enctype="multypart/form-data">
         <div class="form-group mt-2">
-            <label for="title_blog">Blog Title</label>
-            <input class="form-control" type="text" name="title_blog">
+            <label for="title_quize">Quize Title</label>
+            <input class="form-control" type="text" name="title_quize" placeholder="Type the quize title" required>
         </div>
-        <label for="">Blog Content</label>
-        <textarea class="ckeditor form-control m-2" name="body_blog"></textarea>
+        <label for="">Quize Content</label>
+        <textarea class="ckeditor form-control m-2" name="content_quize" required></textarea>
 
         <div class="form-group mt-2">
             <label>Author : </label>
-            <select name="id_author_fk">
+            <select name="id_author_fk" required>
                 <?php
                 $quesry_author = "select * from author";
                 $result_author = mysqli_query($connect, $quesry_author);
@@ -46,7 +48,7 @@ include("./global_top.php")
 
         <div class="form-group mt-2">
             <label>Lecture Category : </label>
-            <select name="id_lecture_fk">
+            <select name="id_lecture_fk" required>
                 <?php
                 $quesry_lecture = "select * from lecture";
                 $result_lecture = mysqli_query($connect, $quesry_lecture);
@@ -59,10 +61,21 @@ include("./global_top.php")
             </select>
         </div>
 
-        <!-- <div class="form-group mt-5">
-                        <label for="thumbnail_link">Thumbnail Image : </label>
-                        <input type="file" name="thumbnail_link">
-                    </div> -->
+
+        <div class="form-group mt-2">
+            <label>Blog Category : </label>
+            <select name="id_blog_fk" required>
+                <?php
+                $quesry_blog = "select * from blog";
+                $result_blog = mysqli_query($connect, $quesry_blog);
+                if (mysqli_num_rows($result_blog) > 0) {
+                    while ($row = mysqli_fetch_assoc($result_blog)) {
+                        echo "<option value=" . $row['id_blog'] . ">" . $row['title_blog'] . "</option>";
+                    }
+                }
+                ?>
+            </select>
+        </div>
 
         <div class="form-group mt-5">
             <button type="submit" name="submit" class="btn btn-primary">Submit</button>
