@@ -29,6 +29,7 @@ include('base_top.php')
                 }
                 ?>
                 <hr>
+                <!-- Button to take exercices related to single blog. this link passes the id of blog by link parameter. -->
                 <a class="text-center" href="./quize.php?idq=<?php echo $_GET['id'] ?>"><button type="button" class="btn btn-success text-center bg-success p-3 text-white">Take Exercices</button></a>
             </div>
         </div>

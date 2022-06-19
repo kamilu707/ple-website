@@ -23,7 +23,7 @@ include("./global_top.php")
 
     ?>
 
-    <h2 class="bg-danger ">Add New Exercice </h2>
+    <h2 class="bg-info ">Add New Exercice </h2>
     <form action="#" method="post" enctype="multypart/form-data">
 
         <label for="">Exercice Question</label>
