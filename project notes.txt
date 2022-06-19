@@ -9,7 +9,8 @@ Tasks finished :
 
 
 To Do :
-	- Add link funcinality to sidnavi menu.
-	- add quize related to blog simple prezent in another page view.
+	
+	- Complete edit blog when clicking 'Update' and find solution for author and lecture. 
+		+ Get help with this video: https://www.youtube.com/watch?v=9q6mxrCre10       Min: 17:00 
 	- Finish blog post in DB. (find how to post thumbnail).
 	- Fix Upload image in Ckeditor.

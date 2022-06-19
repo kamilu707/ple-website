@@ -20,14 +20,47 @@ include("./global_top.php")
 
     ?>
 
-    <h2 class="bg-success text-white p-2">Add New Blog</h2>
+
+    <?php
+    if (isset($_GET['id_blog'])) {
+        $id = $_GET['id_blog'];
+    } else {
+        header('./view_blog.php?success=0');
+    }
+
+
+    // Grab blog data from data base and store in variable to be used as inputs values.
+    $query_edit = "select * from blog where id_blog= '$id'";
+    $result_edit = mysqli_query($connect, $query_edit);
+    if (mysqli_num_rows($result_edit) > 0) {
+        while ($row = mysqli_fetch_assoc($result_edit)) {
+            // global $new_title;
+            // global $new_body;
+            // global $new_author;
+            // global $new_lecture;
+            // global $new_thumbnail;
+
+            $new_title = $row['title_blog'];
+            $new_body = $row['body_blog'];
+            $new_author = $row['id_author_fk'];
+            $new_lecture = $row['id_lecture_fk'];
+            $new_thumbnail =   $row['thumbnail_link'];
+        }
+    }
+
+    // echo $new_title;
+    ?>
+
+    <h2 class="bg-success text-white p-2">Edit Blog</h2>
     <form action="#" method="post" enctype="multypart/form-data">
         <div class="form-group mt-2">
             <label for="title_blog">Blog Title</label>
-            <input class="form-control" type="text" name="title_blog">
+            <input class="form-control" type="text" name="title_blog" value='<?php echo $new_title ?>'>
         </div>
         <label for="">Blog Content</label>
-        <textarea class="ckeditor form-control m-2" name="body_blog"></textarea>
+        <textarea class="ckeditor form-control m-2" name="body_blog" id="body_blog">
+            <?= $new_body;  ?>
+        </textarea>
 
         <div class="form-group mt-2">
             <label>Author : </label>
@@ -65,7 +98,7 @@ include("./global_top.php")
                     </div> -->
 
         <div class="form-group mt-5">
-            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" name="submit" class="btn btn-primary mb-5">Update</button>
         </div>
     </form>
 </div>
@@ -75,11 +108,10 @@ include("./global_top.php")
 </section>
 <!-- script for ckeditor for uploading images -->
 <script>
-    //     CKEDITOR.replace('body_blog', {
-    //         height: 300,
-    //         filebrowserUploadUrl: "upload.php"
-    //     });
-    // 
+    // var textarea = document.getElementById("body_blog");
+    // textarea.innerHTML = '<?php
+                                // echo $new_body 
+                                ?>'
 </script>
 
 
