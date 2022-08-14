@@ -9,8 +9,9 @@ include("./global_top.php")
         $body_blog = $_POST['body_blog'];
         $id_author_fk = $_POST['id_author_fk'];
         $id_lecture_fk = $_POST['id_lecture_fk'];
+        $id = $_GET['id_blog'];
         // $thumbnail_link = $_POST['thumbnail_link'];
-        $query_insert = "INSERT INTO blog(title_blog, body_blog, id_author_fk, id_lecture_fk) VALUES('" .  $title_blog . "','" . $body_blog . "','" . $id_author_fk . "','" . $id_lecture_fk . "')";
+        $query_insert = "update blog set title_blog='" . $title_blog . "'," . "body_blog='" . $body_blog . "'" . "where id_blog=" . $id;
         // $query = "INSERT INTO voiture(Matricule, Couleur, Typecar, Manuel, marque) VALUES ('" . $Matricule . "','" . $Couleur . "','" . $Typecar . "','" . $Manuel . "','" . $marque . "')";
         $result_insert = mysqli_query($connect, $query_insert);
         if (!$result_insert) {

@@ -8,6 +8,7 @@ include("./global_top.php")
     <table class="table">
         <thead class="thead-dark">
             <tr>
+                <th scope="col">Blog NB</th>
                 <th scope="col">Blog title</th>
                 <th scope="col">Blog date</th>
                 <th scope="col">Blog lecture</th>
