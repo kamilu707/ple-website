@@ -33,12 +33,12 @@ include('base_top.php')
         <div class="col-md-8 bg-white ">
             <div class="row">
                 <?php
-                $query = "select * from blog where id_lecture_fk=" . $_GET['id'];
+                $query = "select * from lecture where id_course_fk=" . $_GET['id'];
                 $result = mysqli_query($connect, $query);
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
 
-                        echo "<div class='p-3' >" . "<div> <img src='" . $row['thumbnail_link'] . "' width='300px'></div>"  . "<h2><a href='./single.php?id=" . $row['id_blog'] . "'>" . $row['title_blog'] . "</a></h2>" . "</div>";
+                        echo "<li><a href='./category.php?id=" . $row['id_lecture'] . "&name_lecture=" . $row['name_lecture'] . "'>" . $row['name_lecture'] . "</a></li>";
                     }
                 }
                 ?>

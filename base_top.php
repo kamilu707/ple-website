@@ -40,19 +40,20 @@ if (mysqli_connect_errno()) {
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                         <li class="nav-item">
-                            <a class="nav-link active fw-bold" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active fw-bold" aria-current="page" href="./">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold" href="#">Grammar</a>
+                            <a class="nav-link fw-bold" href="category_menu.php?id=1">Grammar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold" href="#">Writing</a>
+                            <a class="nav-link fw-bold" href="category_menu.php?id=2">Writing</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold" href="#">Vocabulary</a>
+                            <a class="nav-link fw-bold" href="#category_menu.php?id=3">Vocabulary</a>
                         </li>
+
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle fw-bold" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" disbled>
                                 PLE Tools
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -65,7 +66,10 @@ if (mysqli_connect_errno()) {
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold">Quizes</a>
+                            <a class="nav-link fw-bold">Quizes |</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="#" style='color:orange'>For Tran Onah = Love <i class="fa-solid fa-flower-daffodil"></i></a>
                         </li>
                     </ul>
 

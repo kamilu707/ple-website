@@ -20,7 +20,7 @@ include('base_top.php')
                         if (mysqli_num_rows($result2) > 0) {
                             echo "<ul>";
                             while ($row2 = mysqli_fetch_assoc($result2)) {
-                                echo "<li><a href='./category.php?id=" . $row2['id_lecture'] . "'>" . $row2['name_lecture'] . "</a></li>";
+                                echo "<li><a href='./category.php?id=" . $row2['id_lecture'] . "&name_lecture=" . $row2['name_lecture'] . "'>" . $row2['name_lecture'] . "</a></li>";
                             }
                             echo "</ul>";
                         }
