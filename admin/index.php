@@ -2,7 +2,18 @@
 include("./global_top.php")
 ?>
 
+<!-- Test first if authenticated -->
+<?php
+session_start();
+if (!$_SESSION['auth']) {
+    header('location:login.php');
+}
+
+?>
+
 <div class="col-md-8 bg-light">
+
+    <!-- Add bogto database when click submit -->
     <?php
     if (isset($_POST['submit'])) {
         $title_blog = $_POST['title_blog'];
@@ -86,7 +97,6 @@ include("./global_top.php")
 <script src="./style/js/bootstrap.bundle.min.js"></script>
 <script src="./style/js/popper.min.js"></script>
 <script src="./style/js/font_awesome_all.min.js"></script>
-</body>
 </body>
 
 </html>

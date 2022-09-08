@@ -22,7 +22,7 @@ if (mysqli_connect_errno()) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="./style/css/main.css"> -->
+    <link rel="stylesheet" href="./style/css/main.css">
     <title>Document</title>
 </head>
 
@@ -38,7 +38,7 @@ if (mysqli_connect_errno()) {
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 my_nav_menue">
                         <li class="nav-item">
                             <a class="nav-link active fw-bold" aria-current="page" href="./">Home</a>
                         </li>
@@ -71,6 +71,10 @@ if (mysqli_connect_errno()) {
                         <li class="nav-item">
                             <a class="nav-link fw-bold" href="#" style='color:orange'>For Tran Onah = Love <i class="fa-solid fa-flower-daffodil"></i></a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="./admin/"><i class="fa-solid fa-flower-daffodil"></i></a>
+                        </li>
+
                     </ul>
 
                 </div>

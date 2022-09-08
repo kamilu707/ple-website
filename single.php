@@ -4,7 +4,7 @@ include('base_top.php')
 ?>
 
 <!-- Start content -->
-<section class="container">
+<section class="container mb-3">
     <div class="row mt-4 ">
         <div class="col-md-3 ">
             <div class="card p-2 sticky-top me-3">

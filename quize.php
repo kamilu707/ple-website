@@ -32,41 +32,9 @@ include('base_top.php')
                 <a class="text-center" href="./quize.php?idq=<?php echo $_GET['id'] ?>"><button type="button" class="btn btn-success text-center bg-success p-3 text-white">Take Exercices</button></a> -->
             </div>
         </div>
+
         <!-- List the quize and its exercices -->
         <div class="col-md-8 bg-white ">
-            <div class="row">
-                <!-- <h1>Quizes and Exercies</h1> -->
-                <form action="" method="post">
-                    <?php
-                    // Select the quize question
-                    $query = "select * from quize where id_blog_fk=" . $_GET['idq'];
-                    $result = mysqli_query($connect, $query);
-                    if (mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_assoc($result)) {
-
-                            echo "<h1>" . $row['title_quize'] . "</h1>";
-                            echo $row['content_quize'];
-                        }
-                        // Now select all exercices tha is related to this quize.
-                        $query_exrecice = "SELECT * From exercice where id_blog_fk=" . $_GET['idq'];
-                        $result_exercice = mysqli_query($connect, $query_exrecice);
-                        if (mysqli_num_rows($result_exercice) > 0) {
-                            $counter = 0;
-                            while ($row2 = mysqli_fetch_assoc($result_exercice)) {
-                                echo "<h4 class='bg-light p-2 mt-4 mb-2'>" . $row2['question'] . "</h4>";
-                                echo "<div> <input class='form-check-input' type='radio' name='" . $counter . "'value='" . $row2['choice1'] .  "' required>" . $row2['choice1'] . "</div>";
-                                echo "<div> <input class='form-check-input' type='radio' name='" .  $counter . "'value='" . $row2['choice2'] .  "' required>" . $row2['choice2'] . "</div>";
-                                echo "<div> <input class='form-check-input' type='radio' name='" . $counter . "'value='" . $row2['choice3'] .  "' required>" . $row2['choice3'] . "</div>";
-                                $counter++;
-                            }
-                        }
-                    }
-                    mysqli_free_result($result_exercice);
-                    ?>
-                    <input type="submit" name="submit" value="Check Answers">
-                </form>
-            </div>
-
             <!-- Now check the answers are correct and send back the result Mark -->
             <?php
             if (isset($_POST['submit'])) {
@@ -90,12 +58,48 @@ include('base_top.php')
                         $counter++;
                     }
                 }
-                // }
-                echo "You grade is: " . $grade;
+                if ($grade > 5) {
+                    echo "<div class='p-3 bg-success mt-2'>Your grade is: " . $grade . "</div>";
+                } else {
+                    echo "<div class='p-3 bg-danger mt-2'>Your grade is: " . $grade . "<br> <p class='text-white'>Try Again!</p>" . "</div>";
+                }
             }
 
 
             ?>
+            <div class="row">
+                <!-- <h1>Quizes and Exercies</h1> -->
+                <form action="" method="post">
+                    <?php
+                    // Select the quize question
+                    $query = "select * from quize where id_blog_fk=" . $_GET['idq'];
+                    $result = mysqli_query($connect, $query);
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+
+                            echo "<h1>" . $row['title_quize'] . "</h1>";
+                            echo $row['content_quize'];
+                        }
+                        // Now select all exercices tha is related to this quize.
+                        $query_exrecice = "SELECT * From exercice where id_blog_fk=" . $_GET['idq'];
+                        $result_exercice = mysqli_query($connect, $query_exrecice);
+                        if (mysqli_num_rows($result_exercice) > 0) {
+                            $counter = 0;
+                            while ($row2 = mysqli_fetch_assoc($result_exercice)) {
+                                echo "<h4 class='bg-light p-2 mt-4 mb-2 ' style='border-bottom:blue 1px solid;'>" . $row2['question'] . "</h4>";
+                                echo "<div> <input class='form-check-input ' type='radio' name='" . $counter . "'value='" . $row2['choice1'] .  "' required>" . $row2['choice1'] . "</div>";
+                                echo "<div> <input class='form-check-input' type='radio' name='" .  $counter . "'value='" . $row2['choice2'] .  "' required>" . $row2['choice2'] . "</div>";
+                                echo "<div> <input class='form-check-input' type='radio' name='" . $counter . "'value='" . $row2['choice3'] .  "' required>" . $row2['choice3'] . "</div>";
+                                $counter++;
+                            }
+                        }
+                    }
+                    mysqli_free_result($result_exercice);
+                    ?>
+                    <input class="m-5 btn btn-success text-center bg-success p-3 text-white" type="submit" name="submit" value="Check Answers">
+                </form>
+            </div>
+
         </div>
     </div>
 </section>
