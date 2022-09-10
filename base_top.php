@@ -26,9 +26,9 @@ if (mysqli_connect_errno()) {
     <title>Document</title>
 </head>
 
-<body class="bg-light">
+<body class="bg-white">
     <!-- Start header -->
-    <header>
+    <header class="shadow-sm p-1 mb-5 bg-white rounde">
         <nav class="navbar navbar-expand-lg navbar-light bg-light ">
             <div class="container-fluid ">
                 <a class="navbar-brand" href="#">
@@ -73,6 +73,11 @@ if (mysqli_connect_errno()) {
                         </li>
                         <li class="nav-item">
                             <a class="nav-link fw-bold" href="./admin/"><i class="fa-solid fa-flower-daffodil"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Tooltip on top" disabled>
+                                Online Course
+                            </button>
                         </li>
 
                     </ul>

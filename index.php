@@ -20,7 +20,7 @@ include('base_top.php')
                         if (mysqli_num_rows($result2) > 0) {
                             echo "<ul>";
                             while ($row2 = mysqli_fetch_assoc($result2)) {
-                                echo "<li><a href='./category.php?id=" . $row2['id_lecture'] . "&name_lecture=" . $row2['name_lecture'] . "'>" . $row2['name_lecture'] . "</a></li>";
+                                echo "<li  ><a class='m-2 p-1 my_side_menue' href='./category.php?id=" . $row2['id_lecture'] . "&name_lecture=" . $row2['name_lecture'] . "'>" . $row2['name_lecture'] . "</a></li>";
                             }
                             echo "</ul>";
                         }
@@ -30,8 +30,9 @@ include('base_top.php')
                 ?>
             </div>
         </div>
-        <div class="col-md-8 bg-white ">
-            <div class="row">
+        <div class="col-md-8">
+            <div class="row ">
+
                 <?php
                 $query = "select * from blog";
                 $result = mysqli_query($connect, $query);

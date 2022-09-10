@@ -33,8 +33,8 @@ include('base_top.php')
                 <a class="text-center" href="./quize.php?idq=<?php echo $_GET['id'] ?>"><button type="button" class="btn btn-success text-center bg-success p-3 text-white">Take Exercices</button></a>
             </div>
         </div>
-        <div class="col-md-8 bg-white ">
-            <div class="row">
+        <div class="col-md-8 bg-white border-left-3">
+            <div class="row p-3">
                 <?php
                 $query = "select * from blog where id_blog='" . $_GET['id'] . "'";
                 $result = mysqli_query($connect, $query);

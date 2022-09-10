@@ -13,6 +13,10 @@ body {
     background-color: #eee;
 }
 
+li {
+    list-style: none;
+}
+
 .dynamic-secion {
     background-color: white;
 }
@@ -120,4 +124,16 @@ a:hover {
     display: flex;
     justify-content: end;
     width: 100%;
+}
+
+.nav-item:hover {
+    background-color: rgb(172, 172, 172);
+    border-radius: 2px;
+    text-transform: none;
+}
+
+.my_side_menue:hover {
+    background-color: #ddd;
+    border-radius: 2px;
+    text-decoration: none;
 }
