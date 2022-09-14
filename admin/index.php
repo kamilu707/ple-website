@@ -68,6 +68,7 @@ if (!$_SESSION['auth']) {
                 }
                 ?>
             </select>
+            <!-- Add image thumbnail to database -->
         </div>
 
         <!-- <div class="form-group mt-5">
