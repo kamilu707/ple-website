@@ -102,6 +102,18 @@ include("./global_top.php")
             <button type="submit" name="submit" class="btn btn-primary mb-5">Update</button>
         </div>
     </form>
+    <!-- second form, Add image thumbnail to database -->
+
+    <form action="upload_thumbnail.php" method="post" enctype="multipart/form-data">
+        <input type="text" name="id_b" value='<?php echo $id ?>'>
+
+        <label>Image</label>
+        <input type="file" name="my_image">
+
+        <input type="submit" name="upload_img" value="Upload">
+
+
+    </form>
 </div>
 
 

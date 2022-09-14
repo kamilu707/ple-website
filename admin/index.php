@@ -11,28 +11,29 @@ if (!$_SESSION['auth']) {
 
 ?>
 
+<!-- Add blog to database when click submit -->
+<?php
+// if (isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {
+    $title_blog = $_POST['title_blog'];
+    $body_blog = $_POST['body_blog'];
+    $id_author_fk = $_POST['id_author_fk'];
+    $id_lecture_fk = $_POST['id_lecture_fk'];
+
+    $query_insert = "INSERT INTO blog(title_blog, body_blog, id_author_fk, id_lecture_fk) VALUES('" .  $title_blog . "','" . $body_blog . "','" . $id_author_fk . "','" . $id_lecture_fk . "')";
+    // $query = "INSERT INTO voiture(Matricule, Couleur, Typecar, Manuel, marque) VALUES ('" . $Matricule . "','" . $Couleur . "','" . $Typecar . "','" . $Manuel . "','" . $marque . "')";
+    $result_insert = mysqli_query($connect, $query_insert);
+    if (!$result_insert) {
+        echo "<div>Data not insteted.</div><br>" . $query_insert;
+    }
+}
+
+?>
+
 <div class="col-md-8 bg-light">
 
-    <!-- Add bogto database when click submit -->
-    <?php
-    if (isset($_POST['submit'])) {
-        $title_blog = $_POST['title_blog'];
-        $body_blog = $_POST['body_blog'];
-        $id_author_fk = $_POST['id_author_fk'];
-        $id_lecture_fk = $_POST['id_lecture_fk'];
-        // $thumbnail_link = $_POST['thumbnail_link'];
-        $query_insert = "INSERT INTO blog(title_blog, body_blog, id_author_fk, id_lecture_fk) VALUES('" .  $title_blog . "','" . $body_blog . "','" . $id_author_fk . "','" . $id_lecture_fk . "')";
-        // $query = "INSERT INTO voiture(Matricule, Couleur, Typecar, Manuel, marque) VALUES ('" . $Matricule . "','" . $Couleur . "','" . $Typecar . "','" . $Manuel . "','" . $marque . "')";
-        $result_insert = mysqli_query($connect, $query_insert);
-        if (!$result_insert) {
-            echo "<div>Data not insteted.</div><br>" . $query_insert;
-        }
-    }
-
-    ?>
-
     <h2 class="bg-success text-white p-2">Add New Blog</h2>
-    <form action="#" method="post" enctype="multypart/form-data">
+    <form action="submit_blog.php" method="post" enctype="multypart/form-data">
         <div class="form-group mt-2">
             <label for="title_blog">Blog Title</label>
             <input class="form-control" type="text" name="title_blog">
@@ -55,7 +56,7 @@ if (!$_SESSION['auth']) {
             </select>
         </div>
 
-        <div class="form-group mt-2">
+        <div class="form-group mt-4">
             <label>Lecture Category : </label>
             <select name="id_lecture_fk">
                 <?php
@@ -68,31 +69,22 @@ if (!$_SESSION['auth']) {
                 }
                 ?>
             </select>
-            <!-- Add image thumbnail to database -->
         </div>
-
-        <!-- <div class="form-group mt-5">
-                        <label for="thumbnail_link">Thumbnail Image : </label>
-                        <input type="file" name="thumbnail_link">
-                    </div> -->
 
         <div class="form-group mt-5">
-            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+            <input type="submit" name="submit" class="btn btn-primary">
         </div>
+
+
     </form>
+
 </div>
+
 
 
 </div>
 </section>
 <!-- script for ckeditor for uploading images -->
-<script>
-    //     CKEDITOR.replace('body_blog', {
-    //         height: 300,
-    //         filebrowserUploadUrl: "upload.php"
-    //     });
-    // 
-</script>
 
 
 <script src="./style/js/bootstrap.bundle.min.js"></script>

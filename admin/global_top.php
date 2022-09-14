@@ -27,7 +27,7 @@ if (mysqli_connect_errno()) {
 </head>
 
 <body>
-    <section class="container">
+    <section class="container mb-5">
         <div class="row mt-4">
             <div class="col-md-3 bg-light me-5 pt-4 border border-secondary rounded side_menue">
                 <h4><a class="link-light tretched-link bg-light text-black " href="../">Back to Home</a></h4><br>
