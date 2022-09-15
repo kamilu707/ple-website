@@ -39,7 +39,7 @@ include('base_top.php')
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
 
-                        echo "<div class='p-3' >" . "<div> <img src='" . $row['thumbnail_link'] . "' width='300px'></div>"  . "<h2><a href='./single.php?id=" . $row['id_blog'] . "'>" . $row['title_blog'] . "</a></h2>" . "</div>";
+                        echo "<div class='p-3 d-flex' >" . "<div class='border '> <img src=./media/uploads/" . $row['thumbnail_link'] . " width='300px'></div>"  . "<h2><a href='./single.php?id=" . $row['id_blog'] . "'>" . $row['title_blog'] . "</a></h2>" . "</div>";
                     }
                 }
                 ?>

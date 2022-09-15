@@ -9,6 +9,7 @@ include("./global_top.php")
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Blog NB</th>
+                <th scope="col">ID blog</th>
                 <th scope="col">Blog title</th>
                 <th scope="col">Blog date</th>
                 <th scope="col">Blog lecture</th>
@@ -32,7 +33,7 @@ include("./global_top.php")
             if (mysqli_num_rows($result_select) > 0) {
                 $i = 1;
                 while ($row = mysqli_fetch_assoc($result_select)) {
-                    echo "<tr> <th scope='row'> $i </th> <td>" . $row['title_blog'] . "<a class='p-5' href='./edit_blog.php?id_blog=" . $row['id_blog'] . "'>Edit</a>" . "</td> <td>" . $row['date_pub'] . "</td> <td>" . $row['id_lecture_fk'] . "</td> </tr>";
+                    echo "<tr> <th scope='row'> $i </th><td>" . $row['id_blog'] . "</td><td>" . $row['title_blog'] . "<a class='p-5' href='./edit_blog.php?id_blog=" . $row['id_blog'] . "'>Edit</a>" . "</td> <td>" . $row['date_pub'] . "</td> <td>" . $row['id_lecture_fk'] . "</td> </tr>";
                     $i++;
                 }
             }

@@ -31,15 +31,10 @@ include("./global_top.php")
 
 
     // Grab blog data from data base and store in variable to be used as inputs values.
-    $query_edit = "select * from blog where id_blog= '$id'";
+    $query_edit = "select * from blog where id_blog=$id";
     $result_edit = mysqli_query($connect, $query_edit);
     if (mysqli_num_rows($result_edit) > 0) {
         while ($row = mysqli_fetch_assoc($result_edit)) {
-            // global $new_title;
-            // global $new_body;
-            // global $new_author;
-            // global $new_lecture;
-            // global $new_thumbnail;
 
             $new_title = $row['title_blog'];
             $new_body = $row['body_blog'];
@@ -92,28 +87,42 @@ include("./global_top.php")
                 ?>
             </select>
         </div>
-
-        <!-- <div class="form-group mt-5">
-                        <label for="thumbnail_link">Thumbnail Image : </label>
-                        <input type="file" name="thumbnail_link">
-                    </div> -->
-
         <div class="form-group mt-5">
             <button type="submit" name="submit" class="btn btn-primary mb-5">Update</button>
         </div>
     </form>
-    <!-- second form, Add image thumbnail to database -->
+    <!-- second form, Add/Update image thumbnail to database -->
+    <?php
+    // Show current image if existed
+    $query_img = "SELECT thumbnail_link FROM blog WHERE id_blog=$id";
+    $result_img = mysqli_query($connect, $query_img);
+    if (mysqli_num_rows($result_img) > 0) {
+        while ($row = mysqli_fetch_assoc($result_img)) {
+    ?>
+            <img class="border" src="../media/uploads/<?= $row['thumbnail_link']
+                                                        ?>" alt=" .!. No thumbnail image chosen yet">
+    <?php
+        }
+    }
 
-    <form action="upload_thumbnail.php" method="post" enctype="multipart/form-data">
-        <input type="text" name="id_b" value='<?php echo $id ?>'>
+    ?>
 
-        <label>Image</label>
-        <input type="file" name="my_image">
+    <div class="mt-3">
+        <form action="upload_thumbnail.php" method="post" enctype="multipart/form-data">
 
-        <input type="submit" name="upload_img" value="Upload">
+            <div class="form-group mb-3">
+                <label for="">Blog id:</label>
+                <input type="text" name="id_b" value='<?php echo $id ?>' disabled>
+            </div>
+            <div class="bg-secondary text-white pt-2 pb-2">
+                <label>Add thumbnail image:</label>
+                <input type="file" name="my_image">
 
+                <input type="submit" name="upload_img" value="Upload">
 
-    </form>
+            </div>
+        </form>
+    </div>
 </div>
 
 
