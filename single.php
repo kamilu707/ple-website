@@ -5,16 +5,18 @@ include('base_top.php')
 
 <!-- Start content -->
 <section class="container mb-3">
-    <div class="row mt-4 ">
-        <div class="col-md-3 ">
-            <div class="card p-2 sticky-top me-3">
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <div class="card p-2 sticky-top mt-3">
+                <a class="text-center mt-2 mb-3" href="./quize.php?idq=<?php echo $_GET['id'] ?>"><button type="button w-100" class="btn btn-primary btn-lg btn-bloc text-center p-3 text-white"><i class="fas fa-pen"></i> Take Exercices</button></a>
+
                 <?php
                 $query1 = "select * from course";
 
                 $result1 = mysqli_query($connect, $query1);
                 if (mysqli_num_rows($result1) > 0) {
                     while ($row = mysqli_fetch_assoc($result1)) {
-                        echo "<div><h4>" . $row['name_course'] . "</h4>";
+                        echo "<div class='d-flex flex-column'><h4 class='bg-light p-1'> <i class='fas fa-caret-right'></i> " . $row['name_course'] . "</h4>";
                         $query2 = "select * from lecture where id_course_fk=" . $row['id_course'];
                         $result2 = mysqli_query($connect, $query2);
                         if (mysqli_num_rows($result2) > 0) {
@@ -30,7 +32,6 @@ include('base_top.php')
                 ?>
                 <hr>
                 <!-- Button to take exercices related to single blog. this link passes the id of blog by link parameter. -->
-                <a class="text-center" href="./quize.php?idq=<?php echo $_GET['id'] ?>"><button type="button" class="btn btn-success text-center bg-success p-3 text-white">Take Exercices</button></a>
             </div>
         </div>
         <div class="col-md-8 bg-white border-left-3">

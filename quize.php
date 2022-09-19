@@ -14,13 +14,13 @@ include('base_top.php')
                 $result1 = mysqli_query($connect, $query1);
                 if (mysqli_num_rows($result1) > 0) {
                     while ($row = mysqli_fetch_assoc($result1)) {
-                        echo "<div><h4>" . $row['name_course'] . "</h4>";
+                        echo "<div class='d-flex flex-column'><h4 class='bg-light p-1'> <i class='fas fa-caret-right'></i> " . $row['name_course'] . "</h4>";
                         $query2 = "select * from lecture where id_course_fk=" . $row['id_course'];
                         $result2 = mysqli_query($connect, $query2);
                         if (mysqli_num_rows($result2) > 0) {
                             echo "<ul>";
                             while ($row2 = mysqli_fetch_assoc($result2)) {
-                                echo "<li><a href='./category.php?id=" . $row2['id_lecture'] . "'>" . $row2['name_lecture'] . "</a></li>";
+                                echo "<li  ><i class='fas fa-angle-right'></i>    <a class='m-2 p-1 my_side_menue' href='./category.php?id=" . $row2['id_lecture'] . "&name_lecture=" . $row2['name_lecture'] . "'>" . $row2['name_lecture'] . "</a></li>";
                             }
                             echo "</ul>";
                         }

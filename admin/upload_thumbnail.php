@@ -12,6 +12,13 @@ if (mysqli_connect_errno()) {
 //     echo "Connection successful to databases";
 // }
 
+
+
+// Getting GET variables
+if (isset($_GET['id_b'])) {
+    $id_b = $_GET['id_b'];
+}
+
 if ((isset($_POST['upload_img'])) && (isset($_FILES['my_image']))) {
 
     // Insert image to DB
@@ -23,7 +30,7 @@ if ((isset($_POST['upload_img'])) && (isset($_FILES['my_image']))) {
     $img_size = $_FILES['my_image']['size'];
     $img_tmp_name = $_FILES['my_image']['tmp_name'];
     $error = $_FILES['my_image']['error'];
-    $id_b = $_POST['id_b'];
+    // $id_blog = $_POST['id_blog'];
 
     if ($error === 0) {
         if ($img_size > 300000) {

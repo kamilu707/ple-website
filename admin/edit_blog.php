@@ -24,14 +24,14 @@ include("./global_top.php")
 
     <?php
     if (isset($_GET['id_blog'])) {
-        $id = $_GET['id_blog'];
+        $id_b = $_GET['id_blog'];
     } else {
         header('./view_blog.php?success=0');
     }
 
 
     // Grab blog data from data base and store in variable to be used as inputs values.
-    $query_edit = "select * from blog where id_blog=$id";
+    $query_edit = "select * from blog where id_blog=$id_b";
     $result_edit = mysqli_query($connect, $query_edit);
     if (mysqli_num_rows($result_edit) > 0) {
         while ($row = mysqli_fetch_assoc($result_edit)) {
@@ -94,7 +94,7 @@ include("./global_top.php")
     <!-- second form, Add/Update image thumbnail to database -->
     <?php
     // Show current image if existed
-    $query_img = "SELECT thumbnail_link FROM blog WHERE id_blog=$id";
+    $query_img = "SELECT thumbnail_link FROM blog WHERE id_blog=$id_b";
     $result_img = mysqli_query($connect, $query_img);
     if (mysqli_num_rows($result_img) > 0) {
         while ($row = mysqli_fetch_assoc($result_img)) {
@@ -108,11 +108,11 @@ include("./global_top.php")
     ?>
 
     <div class="mt-3">
-        <form action="upload_thumbnail.php" method="post" enctype="multipart/form-data">
+        <form action="upload_thumbnail.php?id_b=<?php echo $id_b ?>" method="post" enctype="multipart/form-data">
 
             <div class="form-group mb-3">
                 <label for="">Blog id:</label>
-                <input type="text" name="id_b" value='<?php echo $id ?>' disabled>
+                <input type="text" name="id_blog" value='<?php echo $id_b ?>' disabled>
             </div>
             <div class="bg-secondary text-white pt-2 pb-2">
                 <label>Add thumbnail image:</label>

@@ -14,7 +14,7 @@ include('base_top.php')
                 $result1 = mysqli_query($connect, $query1);
                 if (mysqli_num_rows($result1) > 0) {
                     while ($row = mysqli_fetch_assoc($result1)) {
-                        echo "<div><h4>" . $row['name_course'] . "</h4>";
+                        echo "<div class='d-flex flex-column'><h4 class='bg-light p-1'> <i class='fas fa-caret-right'></i> " . $row['name_course'] . "</h4>";
                         $query2 = "select * from lecture where id_course_fk=" . $row['id_course'];
                         $result2 = mysqli_query($connect, $query2);
                         if (mysqli_num_rows($result2) > 0) {
@@ -30,7 +30,7 @@ include('base_top.php')
                 ?>
             </div>
         </div>
-        <div class="col-md-8 bg-white ">
+        <div class="col-md-8 bg-white container">
             <div class="row">
                 <?php
                 $query = "select * from blog where id_lecture_fk=" . $_GET['id'];
@@ -38,7 +38,7 @@ include('base_top.php')
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
 
-                        echo "<div class='p-3' >" . "<div> <img src='" . $row['thumbnail_link'] . "' width='300px'></div>"  . "<h2><a href='./single.php?id=" . $row['id_blog'] . "'>" . $row['title_blog'] . "</a></h2>" . "</div>";
+                        echo "<div class='p-3 d-flex align-items-center flex-column col-md-5 border m-1' ><a href='./single.php?id=" . $row['id_blog'] . "'>" . "<div class='border border-secondary'> <img src=./media/uploads/" . $row['thumbnail_link'] . " width='300px'></div>"  . "<div class='d-block p-3'><h2 text-secondary>" . $row['title_blog'] . "</h2></a><p>" .  substr($row['body_blog'], 0, 100) . "</p></div>" . "</div>";
                     }
                 }
                 ?>
