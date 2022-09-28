@@ -7,7 +7,7 @@ include('base_top.php')
 <section class="container">
     <div class="row mt-4 ">
         <div class="col-md-3 ">
-            <div class="card p-2 sticky-top me-3 mb-3">
+            <div class="card p-2 sticky-top me-3 mb-3 my_sidebar">
                 <?php
                 $query1 = "select * from course";
 

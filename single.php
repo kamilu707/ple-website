@@ -7,7 +7,7 @@ include('base_top.php')
 <section class="container mb-3">
     <div class="row mt-4">
         <div class="col-md-3">
-            <div class="card p-2 sticky-top mt-3">
+            <div class="card p-2 sticky-top mt-3 mb-3 border border-dark my_sidebar">
                 <a class="text-center mt-2 mb-3" href="./quize.php?idq=<?php echo $_GET['id'] ?>"><button type="button w-100" class="btn btn-primary btn-lg btn-bloc text-center p-3 text-white"><i class="fas fa-pen"></i> Take Exercices</button></a>
 
                 <?php

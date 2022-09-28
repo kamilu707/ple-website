@@ -7,7 +7,7 @@ include('base_top.php')
 <section class="container mb-5">
     <div class="row mt-4">
         <div class="col-md-3 me-3">
-            <div class="card p-2 sticky-top border border-dark">
+            <div class="card p-2 mt-3 mb-3 sticky-top border border-dark my_sidebar">
                 <?php
                 $query1 = "select * from course";
 
@@ -31,7 +31,7 @@ include('base_top.php')
             </div>
         </div>
         <div class="col-md-8">
-            <div class="row ">
+            <div class="row p-3">
 
                 <?php
                 $query = "select * from blog";
@@ -39,7 +39,7 @@ include('base_top.php')
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
 
-                        echo "<div class='p-3 d-flex align-items-center border m-2' ><a href='./single.php?id=" . $row['id_blog'] . "'>" . "<div class='border border-secondary'> <img src=./media/uploads/" . $row['thumbnail_link'] . " width='300px'></div>"  . "<div class='d-block p-3'><h2 text-secondary>" . $row['title_blog'] . "</h2></a><p>" .  substr($row['body_blog'], 0, 100) . "</p></div>" . "</div>";
+                        echo "<div class='p-3 mt-3 d-flex align-items-center border my_post_box' ><a href='./single.php?id=" . $row['id_blog'] . "'>" . "<div class='border border-secondary'> <img src=./media/uploads/" . $row['thumbnail_link'] . " width='300px'></div>"  . "<div class='d-block p-3 my_post_text'><h2 text-secondary>" . $row['title_blog'] . "</h2></a><p>" .  substr($row['body_blog'], 0, 100) . "... <a class='link-success' href='./single.php?id=" . $row['id_blog'] . "<p class=' d-inline-block'>Continue Reading</p>" .  "</p></a></div>" . "</div>";
                     }
                 }
                 ?>

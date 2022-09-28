@@ -119,13 +119,6 @@ a:hover {
     border: none;
 }
 
-.my_nav_menue {
-    flex-direction: row;
-    display: flex;
-    justify-content: end;
-    width: 100%;
-}
-
 .nav-item:hover {
     background-color: rgb(172, 172, 172);
     border-radius: 2px;
@@ -136,4 +129,29 @@ a:hover {
     background-color: #ddd;
     border-radius: 2px;
     text-decoration: none;
+}
+
+
+@media all and (max-width: 760px) {
+    .my_sidebar {
+        display: none;
+    }
+}
+
+@media all and (max-width: 580px) {
+    .my_post_box {
+        flex-direction: column;
+        flex-direction: center;
+    }
+
+    .my_post_text {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .my_post_box p {
+        text-align: center;
+    }
+
 }
