@@ -4,10 +4,19 @@ DB Name: ple_website
 
 Tasks finished :
 
-	- Add link funcinality to sidnavi menu.
-	- add quize related to blog simple prezent in another page view.
 
 
 To Do :
 
-	- Creat quize result popup window using jquery or other js
+	- Transfer Take Excerice button to be visible in single.php
+	- Creat quize result popup window using bootstrap or other js
+	- Style Exerice page.
+	- Fix thumbnail images ipload in production.
+	- Create Jane videos popup when click on Button
+	- Style and finish footer.
+	- Add basic pages About, Privacy...etc.
+	- Add tages filed or html element to increase SEO.
+	- Add website to Google search console.
+	- Add content to website.
+
+

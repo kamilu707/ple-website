@@ -87,16 +87,29 @@ include('base_top.php')
                             $counter = 0;
                             while ($row2 = mysqli_fetch_assoc($result_exercice)) {
                                 echo "<h4 class='bg-light p-2 mt-4 mb-2 ' style='border-bottom:blue 1px solid;'>" . $row2['question'] . "</h4>";
-                                echo "<div> <input class='form-check-input ' type='radio' name='" . $counter . "'value='" . $row2['choice1'] .  "' required>" . $row2['choice1'] . "</div>";
-                                echo "<div> <input class='form-check-input' type='radio' name='" .  $counter . "'value='" . $row2['choice2'] .  "' required>" . $row2['choice2'] . "</div>";
-                                echo "<div> <input class='form-check-input' type='radio' name='" . $counter . "'value='" . $row2['choice3'] .  "' required>" . $row2['choice3'] . "</div>";
+                                echo "<div> <input class='form-check-input mx-2 pe-auto' type='radio' name='" . $counter . "'value='" . $row2['choice1'] .  "' required>" . $row2['choice1'] . "</div>";
+                                echo "<div> <input class='form-check-input mx-2' type='radio' name='" .  $counter . "'value='" . $row2['choice2'] .  "' required>" . $row2['choice2'] . "</div>";
+                                echo "<div> <input class='form-check-input mx-2' type='radio' name='" . $counter . "'value='" . $row2['choice3'] .  "' required>" . $row2['choice3'] . "</div>";
+                                echo "<div> <input class='form-check-input mx-2' type='radio' name='" . $counter . "'value='" . $row2['choice4'] .  "' required>" . $row2['choice4'] . "</div>";
                                 $counter++;
+                            } ?>
+                            <input class="m-5 btn btn-success text-center bg-success p-3 text-white" type="submit" name="submit" value="Check Answers">
+                    <?php
+                        }
+                    } else {
+                        echo "<div class'text-center bg-danger'> No Exercice for this lesson yet!. Check other quizes listed bellow:</div>";
+                        $quizes_query = "Select * from quize";
+                        $result_quizes_query = mysqli_query($connect, $quizes_query);
+                        if (mysqli_num_rows($result_quizes_query) > 0) {
+                            while ($row = mysqli_fetch_assoc($result_quizes_query)) {
+
+                                echo "<a href='#'><h2>" . $row['title_quize'] . "</h2></a>";
+                                // echo $row['content_quize'];
                             }
                         }
                     }
-                    mysqli_free_result($result_exercice);
+                    // mysqli_free_result($result_exercice);
                     ?>
-                    <input class="m-5 btn btn-success text-center bg-success p-3 text-white" type="submit" name="submit" value="Check Answers">
                 </form>
             </div>
 

@@ -29,7 +29,7 @@ if (mysqli_connect_errno()) {
 <body class="bg-white">
     <!-- Start header -->
     <header class="shadow-sm p-1 mb-5 bg-white rounde">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid ">
                 <a class="navbar-brand" href="#">
                     <a href='./'><img src="./style/images/ple logo 4.png" alt="People learn english"></a>
@@ -38,7 +38,7 @@ if (mysqli_connect_errno()) {
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                         <li class="nav-item">
                             <a class="nav-link active fw-bold" aria-current="page" href="./">Home</a>
                         </li>
@@ -75,9 +75,9 @@ if (mysqli_connect_errno()) {
                             <a class="nav-link fw-bold" href="./admin/"><i class="fa-solid fa-flower-daffodil"></i></a>
                         </li>
                         <li class="nav-item">
-                            <button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Tooltip on top" disabled>
-                                Online Course
-                            </button>
+                            <a href="https://www.youtube.com/watch?v=8mi5ackQzcQ&list=PLd-K1FEKzxabmfcyQdUm9CSirppDACrL6"><button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                                    <i class="fas fa-photo-video"></i> Watch Videos
+                                </button></a>
                         </li>
 
                     </ul>

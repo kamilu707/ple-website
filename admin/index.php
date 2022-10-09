@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
 <div class="col-md-8 bg-light">
 
     <h2 class="bg-success text-white p-2">Add New Blog</h2>
-    <form action="submit_blog.php" method="post" enctype="multypart/form-data">
+    <form action="." method="post" enctype="multypart/form-data">
         <div class="form-group mt-2">
             <label for="title_blog">Blog Title</label>
             <input class="form-control" type="text" name="title_blog">
