@@ -24,7 +24,7 @@ include("./global_top.php")
     ?>
 
     <h2 class="bg-info ">Add New Exercice </h2>
-    <form action="#" method="post" enctype="multypart/form-data">
+    <form action="./exercice.php" method="post" enctype="multypart/form-data">
 
         <label for="">Exercice Question</label>
         <textarea class="form-control m-2" name="question" required placeholder="Example: I ——————— at a bank."></textarea>

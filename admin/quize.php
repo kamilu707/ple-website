@@ -23,7 +23,7 @@ include("./global_top.php");
     ?>
 
     <h2 class="bg-primary">Add New Quize </h2>
-    <form action="#" method="post" enctype="multypart/form-data">
+    <form action="./quize.php" method="post" enctype="multypart/form-data">
         <div class="form-group mt-2">
             <label for="title_quize">Quize Title</label>
             <input class="form-control" type="text" name="title_quize" placeholder="Type the quize title" required>
