@@ -6,8 +6,6 @@ Code: Javascript, PHP, Mysql, Css/bootstrap.
 
 
 
-- Add forth checkbox/Radio.
-- Fix blog submition
-- List reading blogs.
+- Fix blog submition on production.
 - Fix add thumbnail.
 - fix grade color when less exercices exist.

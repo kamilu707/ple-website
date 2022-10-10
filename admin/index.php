@@ -1,5 +1,5 @@
 <?php
-include("./global_top.php")
+include("./global_top.php");
 ?>
 
 <!-- Test first if authenticated -->
@@ -11,80 +11,69 @@ if (!$_SESSION['auth']) {
 
 ?>
 
-<!-- Add blog to database when click submit -->
-<?php
-// if (isset($_POST['submit'])) {
-if (isset($_POST['submit'])) {
-    $title_blog = $_POST['title_blog'];
-    $body_blog = $_POST['body_blog'];
-    $id_author_fk = $_POST['id_author_fk'];
-    $id_lecture_fk = $_POST['id_lecture_fk'];
-
-    $query_insert = "INSERT INTO blog(title_blog, body_blog, id_author_fk, id_lecture_fk) VALUES('" .  $title_blog . "','" . $body_blog . "','" . $id_author_fk . "','" . $id_lecture_fk . "')";
-    // $query = "INSERT INTO voiture(Matricule, Couleur, Typecar, Manuel, marque) VALUES ('" . $Matricule . "','" . $Couleur . "','" . $Typecar . "','" . $Manuel . "','" . $marque . "')";
-    $result_insert = mysqli_query($connect, $query_insert);
-    if (!$result_insert) {
-        echo "<div>Data not insteted.</div><br>" . $query_insert;
-    }
-}
-
-?>
-
 <div class="col-md-8 bg-light">
-
-    <h2 class="bg-success text-white p-2">Add New Blog</h2>
-    <form action="." method="post" enctype="multypart/form-data">
-        <div class="form-group mt-2">
-            <label for="title_blog">Blog Title</label>
-            <input class="form-control" type="text" name="title_blog">
-        </div>
-        <label for="">Blog Content</label>
-        <textarea class="ckeditor form-control m-2" name="body_blog"></textarea>
-
-        <div class="form-group mt-2">
-            <label>Author : </label>
-            <select name="id_author_fk">
-                <?php
-                $quesry_author = "select * from author";
-                $result_author = mysqli_query($connect, $quesry_author);
-                if (mysqli_num_rows($result_author) > 0) {
-                    while ($row = mysqli_fetch_assoc($result_author)) {
-                        echo "<option value=" . $row['id_author'] . ">" . $row['name_author'] . "</option>";
-                    }
+    <h2 class="bg-success text-center py-2 text- mb-3 text-white">Summary</h2>
+    <div class="d-flex flex-direction-column justify-content-around">
+        <div class="col-md-2 text-center">
+            <h4> NB Blogs:</h4>
+            <?php
+            $q_blogs = "select * from blog";
+            $r_blogs = mysqli_query($connect, $q_blogs);
+            $count_blogs = 0;
+            $count_quize = 0;
+            $count_exercices = 0;
+            if (mysqli_num_rows($r_blogs) > 0) {
+                while ($row = mysqli_fetch_assoc($r_blogs)) {
+                    $count_blogs += 1;
                 }
-                ?>
-            </select>
+            }
+            echo "<p>" . $count_blogs . "</p>"
+            ?>
         </div>
-
-        <div class="form-group mt-4">
-            <label>Lecture Category : </label>
-            <select name="id_lecture_fk">
-                <?php
-                $quesry_lecture = "select * from lecture";
-                $result_lecture = mysqli_query($connect, $quesry_lecture);
-                if (mysqli_num_rows($result_lecture) > 0) {
-                    while ($row = mysqli_fetch_assoc($result_lecture)) {
-                        echo "<option value=" . $row['id_lecture'] . ">" . $row['name_lecture'] . "</option>";
-                    }
+        <div class="col-md-2 text-center">
+            <h4> Quizes:</h4>
+            <?php
+            $q_quize = "select * from quize";
+            $r_quize = mysqli_query($connect, $q_quize);
+            $count_blogs = 0;
+            if (mysqli_num_rows($r_quize) > 0) {
+                while ($row = mysqli_fetch_assoc($r_quize)) {
+                    $count_blogs += 1;
                 }
-                ?>
-            </select>
+            }
+            echo "<p>" . $count_blogs . "</p>"
+            ?>
+        </div>
+        <div class="col-md-2 text-center">
+            <h4> Exercices:</h4>
+            <?php
+            $q_exercices = "select * from exercice";
+            $r_exercices = mysqli_query($connect, $q_exercices);
+            $count_exercices = 0;
+            if (mysqli_num_rows($r_quize) > 0) {
+                while ($row = mysqli_fetch_assoc($r_exercices)) {
+                    $count_exercices += 1;
+                }
+            }
+            echo "<p>" . $count_exercices . "</p>"
+            ?>
         </div>
 
-        <div class="form-group mt-5">
-            <input type="submit" name="submit" class="btn btn-primary">
-        </div>
-
-
-    </form>
-
+    </div>
 </div>
 
 
 
-</div>
+
 </section>
 <!-- script for ckeditor for uploading images -->
+<script>
+    //     CKEDITOR.replace('body_blog', {
+    //         height: 300,
+    //         filebrowserUploadUrl: "upload.php"
+    //     });
+    // 
+</script>
 
 
 <script src="./style/js/bootstrap.bundle.min.js"></script>

@@ -1,5 +1,5 @@
 <?php
-$host = "localhost";
+$host = "127.0.0.1";
 $username = "root";
 $password = "0638807603@talibi";
 $database = "ple_website";
@@ -31,9 +31,10 @@ if (mysqli_connect_errno()) {
         <div class="row mt-4">
             <div class="col-md-3 bg-light me-5 pt-4 border border-secondary rounded side_menue">
                 <h4><a class="link-light tretched-link bg-light text-black " href="../">Back to Home</a></h4><br>
+                <h4><a class="link-light tretched-link bg-light text-black " href="./index.php">Admin Home</a></h4><br>
 
                 <h4 class="text-secondary">Create New</h4>
-                <a class="link-light tretched-link bg-success " href="./index.php">Create New Blog</a>
+                <a class="link-light tretched-link bg-success " href="./new_blog.php">Create New Blog</a>
                 <a class="link-light tretched-link bg-primary" href="./quize.php">Create New Quize</a>
                 <a class="link-light tretched-link bg-info" href="./exercice.php">Add New Exercice</a>
                 <div>

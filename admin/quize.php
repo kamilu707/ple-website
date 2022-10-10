@@ -1,6 +1,6 @@
 <!-- connect to DB and include bloabl content -->
 <?php
-include("./global_top.php")
+include("./global_top.php");
 ?>
 
 <!-- Start Body content -->
@@ -99,7 +99,6 @@ include("./global_top.php")
 <script src="./style/js/bootstrap.bundle.min.js"></script>
 <script src="./style/js/popper.min.js"></script>
 <script src="./style/js/font_awesome_all.min.js"></script>
-</body>
 </body>
 
 </html>
