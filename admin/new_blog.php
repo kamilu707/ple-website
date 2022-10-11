@@ -64,7 +64,7 @@ if (isset($_POST['submit'])) {
 
         <div class="form-group mt-5">
             <!-- <input type="submit" name="submit" class="btn btn-primary"> -->
-            <input type="submit" name="submit" class="btn btn-primary">
+            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
 
         </div>
 
@@ -77,7 +77,6 @@ if (isset($_POST['submit'])) {
 
 </div>
 </section>
-<!-- script for ckeditor for uploading images -->
 
 
 <script src="./style/js/bootstrap.bundle.min.js"></script>

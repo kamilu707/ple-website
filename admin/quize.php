@@ -86,14 +86,6 @@ include("./global_top.php");
 
 </div>
 </section>
-<!-- script for ckeditor for uploading images -->
-<script>
-    //     CKEDITOR.replace('body_blog', {
-    //         height: 300,
-    //         filebrowserUploadUrl: "upload.php"
-    //     });
-    // 
-</script>
 
 
 <script src="./style/js/bootstrap.bundle.min.js"></script>
